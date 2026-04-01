@@ -1,4 +1,9 @@
-from controle_medicamentos import Medicamento, carregar_medicamentos, salvar_medicamentos
+from controle_medicamentos import (
+    Medicamento,
+    carregar_medicamentos,
+    salvar_medicamentos
+)
+
 
 if __name__ == '__main__':
 
@@ -87,7 +92,9 @@ if __name__ == '__main__':
                     print(f"{i} - {med.get_nome()}")
 
                 try:
-                    indice = int(input("Escolha o número do medicamento: ")) - 1
+                    indice = int(
+                        input("Escolha o número do medicamento: ")
+                    ) - 1
                 except ValueError:
                     print("Digite um número válido!")
                     continue
@@ -97,36 +104,48 @@ if __name__ == '__main__':
 
                     print("\nDeixe vazio para não alterar")
 
-                    novo_nome = input(f"Novo nome ({med.get_nome()}): ")
+                    novo_nome = input(
+                        f"Novo nome ({med.get_nome()}): "
+                    )
                     if novo_nome:
                         med.set_nome(novo_nome)
 
                     try:
-                        nova_dosagem = input(f"Nova dosagem ({med.get_dosagem_mg()}): ")
+                        nova_dosagem = input(
+                            f"Nova dosagem ({med.get_dosagem_mg()}): "
+                        )
                         if nova_dosagem:
                             med.set_dosagem_mg(float(nova_dosagem))
                     except ValueError:
                         print("Dosagem inválida!")
 
-                    novo_horario = input(f"Novo horário ({med.get_horario()}): ")
+                    novo_horario = input(
+                        f"Novo horário ({med.get_horario()}): "
+                    )
                     if novo_horario:
                         if ":" in novo_horario:
                             med.set_horario(novo_horario)
                         else:
-                            print("Horário inválido! Mantido o anterior.")
+                            print("Horário inválido!")
 
-                    novos_dias = input(f"Novos dias ({med.get_dias()}): ")
+                    novos_dias = input(
+                        f"Novos dias ({med.get_dias()}): "
+                    )
                     if novos_dias:
                         med.set_dias(novos_dias)
 
                     try:
-                        nova_duracao = input(f"Nova duração ({med.get_duracao_dias()}): ")
+                        nova_duracao = input(
+                            f"Nova duração ({med.get_duracao_dias()}): "
+                        )
                         if nova_duracao:
                             med.set_duracao_dias(int(nova_duracao))
                     except ValueError:
                         print("Duração inválida!")
 
-                    nova_posologia = input(f"Nova posologia ({med.get_posologia()}): ")
+                    nova_posologia = input(
+                        f"Nova posologia ({med.get_posologia()}): "
+                    )
                     if nova_posologia:
                         med.set_posologia(nova_posologia)
 
@@ -149,7 +168,9 @@ if __name__ == '__main__':
                     print(f"{i} - {med.get_nome()}")
 
                 try:
-                    indice = int(input("Digite o número do medicamento: ")) - 1
+                    indice = int(
+                        input("Digite o número do medicamento: ")
+                    ) - 1
                 except ValueError:
                     print("Digite um número válido!")
                     continue

@@ -1,7 +1,17 @@
 import json
 
+
 class Medicamento:
-    def __init__(self, nome: str, dosagem_mg: float, horario: str, dias: str, duracao_dias: int, posologia: str):
+
+    def __init__(
+        self,
+        nome: str,
+        dosagem_mg: float,
+        horario: str,
+        dias: str,
+        duracao_dias: int,
+        posologia: str
+    ):
         self.nome = nome
         self.dosagem_mg = dosagem_mg
         self.horario = horario
