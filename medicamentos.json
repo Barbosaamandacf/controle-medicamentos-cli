@@ -1,0 +1,34 @@
+[
+    {
+        "nome": "Dipirona",
+        "dosagem_mg": 500.0,
+        "horario": "08:00",
+        "dias": "segunda a sexta",
+        "duracao_dias": 7,
+        "posologia": "Tomar 1 comprimido de 500mg"
+    },
+    {
+        "nome": "Dipirona",
+        "dosagem_mg": 500.0,
+        "horario": "09:00",
+        "dias": "segundas, quartas e quintas",
+        "duracao_dias": 10,
+        "posologia": "1 comp ao dia"
+    },
+    {
+        "nome": "Avalox",
+        "dosagem_mg": 1000.0,
+        "horario": "08:30",
+        "dias": "segunda e sexta",
+        "duracao_dias": 15,
+        "posologia": "Tomar 1 comprimido ao dia"
+    },
+    {
+        "nome": "Cloridrato de Paroxetina",
+        "dosagem_mg": 15.0,
+        "horario": "15:00",
+        "dias": "segunda a sexta",
+        "duracao_dias": 30,
+        "posologia": "Tomar 1 comprimido ao dia"
+    }
+]
