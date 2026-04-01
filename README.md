@@ -1,5 +1,7 @@
 # Sistema de Controle de Medicamentos (CLI)
 
+![CI](https://github.com/Barbosaamandacf/controle-medicamentos-cli/actions/workflows/ci.yml/badge.svg)
+
 ## Descrição do Problema
 
 Muitas pessoas, especialmente idosos ou pacientes em tratamento contínuo, têm dificuldade em organizar corretamente seus medicamentos, horários, dosagens e duração dos tratamentos. Isso pode causar esquecimentos, uso incorreto e até riscos à saúde.
