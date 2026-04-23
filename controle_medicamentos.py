@@ -1,8 +1,8 @@
 import json
+import requests
 
 
 class Medicamento:
-
     def __init__(
         self,
         nome: str,
@@ -115,8 +115,6 @@ def salvar_medicamentos(lista):
 
     with open("medicamentos.json", "w") as arquivo:
         json.dump(lista_dict, arquivo, indent=4)
-
-import requests
 
 
 def buscar_info_api():
