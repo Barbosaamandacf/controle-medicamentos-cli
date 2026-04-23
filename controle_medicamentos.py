@@ -115,3 +115,20 @@ def salvar_medicamentos(lista):
 
     with open("medicamentos.json", "w") as arquivo:
         json.dump(lista_dict, arquivo, indent=4)
+
+import requests
+
+
+def buscar_info_api():
+    url = "https://jsonplaceholder.typicode.com/posts/1"
+
+    try:
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
+    except Exception:
+        return None

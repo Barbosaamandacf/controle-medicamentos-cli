@@ -1,7 +1,8 @@
 from controle_medicamentos import (
     Medicamento,
     carregar_medicamentos,
-    salvar_medicamentos
+    salvar_medicamentos,
+    buscar_info_api
 )
 
 
@@ -78,6 +79,14 @@ if __name__ == '__main__':
                     print(f"   Duração: {med.get_duracao_dias()} dias")
                     print(f"   Posologia: {med.get_posologia()}")
                     print("------------------------")
+
+                dados_api = buscar_info_api()
+
+                if dados_api:
+                    print("\n🌐 Informação externa da API:")
+                    print(dados_api["title"])
+                else:
+                    print("\nNão foi possível obter dados da API.")
 
         elif opcao == "3":
             print("Você escolheu editar medicamento")
