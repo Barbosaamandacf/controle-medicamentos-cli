@@ -1,10 +1,12 @@
 from controle_medicamentos import (
     Medicamento,
-    carregar_medicamentos,
-    salvar_medicamentos,
     buscar_info_api
 )
 
+from database import (
+    inserir_medicamento,
+    listar_medicamentos
+)
 
 if __name__ == '__main__':
 
@@ -56,16 +58,21 @@ if __name__ == '__main__':
                 posologia=posologia
             )
 
-            lista = carregar_medicamentos()
-            lista.append(med)
-            salvar_medicamentos(lista)
+            inserir_medicamento(
+                med.get_nome(),
+                med.get_dosagem_mg(),
+                med.get_horario(),
+                med.get_dias(),
+                med.get_duracao_dias(),
+                med.get_posologia()
+            )
 
             print("Medicamento cadastrado com sucesso!")
 
         elif opcao == "2":
             print("Você escolheu listar medicamentos")
 
-            lista = carregar_medicamentos()
+            lista = listar_medicamentos()
 
             if not lista:
                 print("Nenhum medicamento cadastrado ainda.")
@@ -91,7 +98,7 @@ if __name__ == '__main__':
         elif opcao == "3":
             print("Você escolheu editar medicamento")
 
-            lista = carregar_medicamentos()
+            lista = listar_medicamentos()
 
             if not lista:
                 print("Nenhum medicamento cadastrado.")
