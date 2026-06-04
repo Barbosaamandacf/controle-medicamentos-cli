@@ -5,7 +5,9 @@ from controle_medicamentos import (
 
 from database import (
     inserir_medicamento,
-    listar_medicamentos
+    listar_medicamentos,
+    atualizar_medicamento,
+    remover_medicamento
 )
 
 if __name__ == '__main__':
@@ -50,6 +52,7 @@ if __name__ == '__main__':
             posologia = input("Posologia: ")
 
             med = Medicamento(
+                id = 0,
                 nome=nome,
                 dosagem_mg=dosagem_mg,
                 horario=horario,
@@ -79,7 +82,7 @@ if __name__ == '__main__':
             else:
                 print("\n MEDICAMENTOS ")
                 for i, med in enumerate(lista, start=1):
-                    print(f"{i}. Nome: {med.get_nome()}")
+                    print(f"{i}. ID: {med.get_id()} | Nome: {med.get_nome()}")
                     print(f"   Dosagem: {med.get_dosagem_mg()} mg")
                     print(f"   Horário: {med.get_horario()}")
                     print(f"   Dias: {med.get_dias()}")
@@ -165,7 +168,16 @@ if __name__ == '__main__':
                     if nova_posologia:
                         med.set_posologia(nova_posologia)
 
-                    salvar_medicamentos(lista)
+                    atualizar_medicamento(
+                        med.get_id(),
+                        med.get_nome(),
+                        med.get_dosagem_mg(),
+                        med.get_horario(),
+                        med.get_dias(),
+                        med.get_duracao_dias(),
+                        med.get_posologia()
+                    )
+
                     print("Medicamento atualizado com sucesso!")
 
                 else:
@@ -174,7 +186,7 @@ if __name__ == '__main__':
         elif opcao == "4":
             print("Você escolheu remover medicamento")
 
-            lista = carregar_medicamentos()
+            lista = listar_medicamentos()
 
             if not lista:
                 print("Nenhum medicamento para remover.")
@@ -192,8 +204,12 @@ if __name__ == '__main__':
                     continue
 
                 if 0 <= indice < len(lista):
-                    lista.pop(indice)
-                    salvar_medicamentos(lista)
+                    med = lista[indice]
+
+                    remover_medicamento(
+                        med.get_id()
+                    )
+
                     print("Medicamento removido com sucesso!")
                 else:
                     print("Índice inválido!")

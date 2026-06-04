@@ -1,17 +1,18 @@
-import json
 import requests
 
 
 class Medicamento:
     def __init__(
-        self,
-        nome: str,
-        dosagem_mg: float,
-        horario: str,
-        dias: str,
-        duracao_dias: int,
-        posologia: str
+            self,
+            id: int,
+            nome: str,
+            dosagem_mg: float,
+            horario: str,
+            dias: str,
+            duracao_dias: int,
+            posologia: str
     ):
+        self.id = id
         self.nome = nome
         self.dosagem_mg = dosagem_mg
         self.horario = horario
@@ -21,6 +22,9 @@ class Medicamento:
 
     def get_nome(self):
         return self.nome
+
+    def get_id(self):
+        return self.id
 
     def get_dosagem_mg(self):
         return self.dosagem_mg
@@ -82,40 +86,6 @@ class Medicamento:
             "duracao_dias": self.duracao_dias,
             "posologia": self.posologia
         }
-
-
-def carregar_medicamentos():
-    try:
-        with open("medicamentos.json", "r") as arquivo:
-            dados = json.load(arquivo)
-    except FileNotFoundError:
-        return []
-
-    lista_objetos = []
-
-    for med_dict in dados:
-        novo_med = Medicamento(
-            med_dict["nome"],
-            med_dict["dosagem_mg"],
-            med_dict["horario"],
-            med_dict["dias"],
-            med_dict["duracao_dias"],
-            med_dict["posologia"]
-        )
-        lista_objetos.append(novo_med)
-
-    return lista_objetos
-
-
-def salvar_medicamentos(lista):
-    lista_dict = []
-
-    for med in lista:
-        lista_dict.append(med.to_dict())
-
-    with open("medicamentos.json", "w") as arquivo:
-        json.dump(lista_dict, arquivo, indent=4)
-
 
 def buscar_info_api():
     url = "https://jsonplaceholder.typicode.com/posts/1"

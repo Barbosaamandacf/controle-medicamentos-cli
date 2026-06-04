@@ -44,7 +44,8 @@ def listar_medicamentos():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT nome,
+        SELECT id,
+               nome,
                dosagem_mg,
                horario,
                dias,
@@ -59,12 +60,13 @@ def listar_medicamentos():
 
     for item in dados:
         med = Medicamento(
-            item[0],
-            item[1],
-            item[2],
-            item[3],
-            item[4],
-            item[5]
+            item[0],  # id
+            item[1],  # nome
+            item[2],  # dosagem
+            item[3],  # horario
+            item[4],  # dias
+            item[5],  # duracao
+            item[6]  # posologia
         )
         lista.append(med)
 
@@ -72,3 +74,52 @@ def listar_medicamentos():
     conn.close()
 
     return lista
+
+def atualizar_medicamento(
+        id,
+        nome,
+        dosagem_mg,
+        horario,
+        dias,
+        duracao_dias,
+        posologia
+):
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE medicamentos
+        SET nome = %s,
+            dosagem_mg = %s,
+            horario = %s,
+            dias = %s,
+            duracao_dias = %s,
+            posologia = %s
+        WHERE id = %s
+    """, (
+        nome,
+        dosagem_mg,
+        horario,
+        dias,
+        duracao_dias,
+        posologia,
+        id
+    ))
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+
+def remover_medicamento(id):
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        DELETE FROM medicamentos
+        WHERE id = %s
+    """, (id,))
+
+    conn.commit()
+    cursor.close()
+    conn.close()
