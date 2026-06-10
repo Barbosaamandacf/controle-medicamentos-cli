@@ -52,7 +52,7 @@ if __name__ == '__main__':
             posologia = input("Posologia: ")
 
             med = Medicamento(
-                id = 0,
+                id=0,
                 nome=nome,
                 dosagem_mg=dosagem_mg,
                 horario=horario,

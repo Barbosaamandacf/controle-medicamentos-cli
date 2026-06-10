@@ -87,6 +87,7 @@ class Medicamento:
             "posologia": self.posologia
         }
 
+
 def buscar_info_api():
     url = "https://jsonplaceholder.typicode.com/posts/1"
 

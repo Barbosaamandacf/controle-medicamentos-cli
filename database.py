@@ -11,6 +11,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 def conectar():
     return psycopg2.connect(DATABASE_URL)
 
+
 def inserir_medicamento(
         nome,
         dosagem_mg,
@@ -38,6 +39,7 @@ def inserir_medicamento(
     conn.commit()
     cursor.close()
     conn.close()
+
 
 def listar_medicamentos():
     conn = conectar()
@@ -74,6 +76,7 @@ def listar_medicamentos():
     conn.close()
 
     return lista
+
 
 def atualizar_medicamento(
         id,
