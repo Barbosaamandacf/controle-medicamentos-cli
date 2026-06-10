@@ -87,7 +87,28 @@
             <td>{{ med.get_dosagem_mg() }} mg</td>
             <td>{{ med.get_horario() }}</td>
             <td>{{ med.get_dias() }}</td>
-            <td>{{ med.get_duracao_dias() }} dias</td>
+            <td>
+            {% if med.get_duracao_dias() <= 7 %}
+
+            <span class="badge bg-success">
+                {{ med.get_duracao_dias() }} dias
+            </span>
+
+            {% elif med.get_duracao_dias() <= 10 %}
+
+            <span class="badge bg-warning text-dark">
+                {{ med.get_duracao_dias() }} dias
+            </span>
+
+            {% else %}
+
+            <span class="badge bg-danger">
+                {{ med.get_duracao_dias() }} dias
+            </span>
+
+            {% endif %}
+
+            </td>
             <td>{{ med.get_posologia() }}</td>
         </tr>
 
