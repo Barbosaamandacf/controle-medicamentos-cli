@@ -12,7 +12,8 @@ def conectar():
     return psycopg2.connect(DATABASE_URL)
 
 
-def inserir_medicamento(nome, dosagem_mg, horario, dias, duracao_dias, posologia):
+def inserir_medicamento(nome, dosagem_mg, horario, 
+                        dias, duracao_dias, posologia):
     conn = conectar()
     cursor = conn.cursor()
 
