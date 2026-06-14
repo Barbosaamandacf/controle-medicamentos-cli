@@ -3,14 +3,14 @@ import requests
 
 class Medicamento:
     def __init__(
-            self,
-            id: int,
-            nome: str,
-            dosagem_mg: float,
-            horario: str,
-            dias: str,
-            duracao_dias: int,
-            posologia: str
+        self,
+        id: int,
+        nome: str,
+        dosagem_mg: float,
+        horario: str,
+        dias: str,
+        duracao_dias: int,
+        posologia: str,
     ):
         self.id = id
         self.nome = nome
@@ -84,7 +84,7 @@ class Medicamento:
             "horario": self.horario,
             "dias": self.dias,
             "duracao_dias": self.duracao_dias,
-            "posologia": self.posologia
+            "posologia": self.posologia,
         }
 
 
