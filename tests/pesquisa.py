@@ -66,7 +66,10 @@ def iniciar_programa():
                     f" - {res.get_nome()} | Dosagem: {res.get_dosagem_mg()}mg | Horário: {res.get_horario()} | Duração: {res.get_duracao_dias()} dias"
                 )
         else:
-            print("\n❌ Nenhum medicamento encontrado com esse termo.")
+            print(
+    "\n❌ Nenhum medicamento encontrado com esse termo. "
+    "Tente digitar outra palavra-chave."
+)
 
 
 if __name__ == "__main__":
