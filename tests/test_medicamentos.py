@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from controle_medicamentos import Medicamento
+from controle_medicamentos import Medicamento  # noqa: E402
 
 
 def test_criar_medicamento():
