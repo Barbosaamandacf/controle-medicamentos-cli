@@ -1,64 +1,58 @@
-# Sistema de Controle de Medicamentos (CLI)
+# Sistema de Controle de Medicamentos
 
-![CI](https://github.com/Barbosaamandacf/controle-medicamentos-cli/actions/workflows/ci.yml/badge.svg)
+## Descrição
 
-## Deploy
-
-A aplicação pode ser executada localmente via terminal (CLI).
-
-Repositório: https://github.com/Barbosaamandacf/controle-medicamentos-cli
-
-### Como executar
-
-```bash
-git clone https://github.com/Barbosaamandacf/controle-medicamentos-cli.git
-cd controle-medicamentos-cli
-pip install -r requirements.txt
-python main.py
-```
+O Sistema de Controle de Medicamentos é uma aplicação web desenvolvida em Python com o objetivo de auxiliar usuários no gerenciamento de medicamentos e tratamentos.
+A aplicação permite cadastrar, visualizar, atualizar, remover e pesquisar medicamentos, armazenando as informações em um banco de dados PostgreSQL hospedado na nuvem através do Supabase.
+O projeto foi desenvolvido durante o projeto de BootCamp II, aplicando conceitos de desenvolvimento colaborativo, integração contínua, banco de dados em nuvem e deploy de aplicações web.
 
 ---
 
-## Descrição do Problema
+## Funcionalidades
 
-Muitas pessoas, especialmente idosos ou pacientes em tratamento contínuo, têm dificuldade em organizar corretamente seus medicamentos, horários, dosagens e duração dos tratamentos. Isso pode causar esquecimentos, uso incorreto e até riscos à saúde.
-
----
-
-## Proposta da Solução
-
-Este projeto propõe uma aplicação simples em linha de comando (CLI) que permite ao usuário cadastrar, visualizar, editar e remover medicamentos, organizando informações importantes como horário, dosagem e duração do tratamento.
-
----
-
-## Público-Alvo
-
-- Idosos ou cuidadores
-- Pessoas em tratamento contínuo
-- Usuários que desejam organizar sua rotina de medicamentos
-
----
-
-## Funcionalidades Principais
-
-- Cadastro de medicamentos
-- Listagem de medicamentos cadastrados
-- Edição de informações (nome, dosagem, horário, etc.)
-- Remoção de medicamentos
-- Armazenamento em arquivo JSON
-- Integração com API pública (JSONPlaceholder) para exibir informações externas
+* Cadastro de medicamentos
+* Listagem de medicamentos
+* Atualização de informações
+* Remoção de medicamentos
+* Pesquisa de medicamentos
+* Integração com banco de dados PostgreSQL (Supabase)
+* Interface web desenvolvida com Flask
+* Deploy em ambiente de produção
+* Testes automatizados
+* Integração contínua com GitHub Actions
 
 ---
 
 ## Tecnologias Utilizadas
 
-- Python 3
-- JSON (armazenamento de dados)
-- requests (integração com API pública)
+* Python 3
+* Flask
+* PostgreSQL
+* Supabase
+* Git
+* GitHub
+* GitHub Actions
+* Gunicorn
+* Pytest
+* Flake8
+* Bootstrap 5
 
 ---
 
-## Instruções de Instalação
+## Banco de Dados
+
+A aplicação utiliza PostgreSQL hospedado no Supabase para armazenamento persistente das informações dos medicamentos.
+
+As operações implementadas incluem:
+
+* Create (Cadastrar)
+* Read (Consultar)
+* Update (Atualizar)
+* Delete (Remover)
+
+---
+
+## Como Executar Localmente
 
 Clone o repositório:
 
@@ -66,7 +60,7 @@ Clone o repositório:
 git clone https://github.com/Barbosaamandacf/controle-medicamentos-cli.git
 ```
 
-Acesse a pasta do projeto:
+Entre na pasta do projeto:
 
 ```bash
 cd controle-medicamentos-cli
@@ -78,59 +72,65 @@ Instale as dependências:
 pip install -r requirements.txt
 ```
 
----
+Configure a variável de ambiente DATABASE_URL no arquivo .env.
 
-## Instruções de Execução
-
-Execute o arquivo principal:
+Execute a aplicação:
 
 ```bash
-python main.py
+python app.py
 ```
 
 ---
 
-## Instruções para Rodar os Testes
+## Testes
 
-Os testes automatizados verificam:
-
-- Criação de medicamentos
-- Validação de dosagem inválida
-- Validação de nome vazio
-- Integração com API pública (teste de integração)
-
-Instale o pytest e execute:
+Para executar os testes:
 
 ```bash
-pip install pytest
 pytest
 ```
 
 ---
 
-## Instruções para Rodar o Lint
+## Verificação de Código
 
-Instale o flake8 e execute:
+Para executar o Flake8:
 
 ```bash
-pip install flake8
 flake8 .
 ```
 
 ---
 
-## Versão Atual
+## Deploy
 
-1.0.0
+Aplicação publicada em:
 
----
-
-## Autor
-
-Amanda Barbosa
+https://controle-medicamentos-cli.onrender.com
 
 ---
 
-## Link do Repositório
+## Repositório
 
 https://github.com/Barbosaamandacf/controle-medicamentos-cli
+
+---
+
+## Integrantes
+
+* Amanda Celina Fernandes Barbosa — RA: 22552352
+* Paulo Vitor Sousa – RA: 22551341
+
+---
+
+## Trabalho Colaborativo
+
+O desenvolvimento foi realizado utilizando GitHub com:
+
+* Branches de desenvolvimento
+* Pull Requests
+* Code Review
+* GitHub Actions
+* Controle de versão com Git
+
+Cada integrante realizou contribuições individuais através de commits e Pull Requests revisados e integrados à branch principal.
