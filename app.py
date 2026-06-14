@@ -8,10 +8,7 @@ app = Flask(__name__)
 def home():
     medicamentos = listar_medicamentos()
 
-    return render_template(
-        "index.html",
-        medicamentos=medicamentos
-    )
+    return render_template("index.html", medicamentos=medicamentos)
 
 
 if __name__ == "__main__":

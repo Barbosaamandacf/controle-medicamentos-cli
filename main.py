@@ -1,16 +1,13 @@
-from controle_medicamentos import (
-    Medicamento,
-    buscar_info_api
-)
+from controle_medicamentos import Medicamento, buscar_info_api
 
 from database import (
     inserir_medicamento,
     listar_medicamentos,
     atualizar_medicamento,
-    remover_medicamento
+    remover_medicamento,
 )
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     while True:
         print("\n MENU ")
@@ -58,7 +55,7 @@ if __name__ == '__main__':
                 horario=horario,
                 dias=dias,
                 duracao_dias=duracao_dias,
-                posologia=posologia
+                posologia=posologia,
             )
 
             inserir_medicamento(
@@ -67,7 +64,7 @@ if __name__ == '__main__':
                 med.get_horario(),
                 med.get_dias(),
                 med.get_duracao_dias(),
-                med.get_posologia()
+                med.get_posologia(),
             )
 
             print("Medicamento cadastrado com sucesso!")
@@ -111,9 +108,7 @@ if __name__ == '__main__':
                     print(f"{i} - {med.get_nome()}")
 
                 try:
-                    indice = int(
-                        input("Escolha o número do medicamento: ")
-                    ) - 1
+                    indice = int(input("Escolha o número do medicamento: ")) - 1
                 except ValueError:
                     print("Digite um número válido!")
                     continue
@@ -123,33 +118,25 @@ if __name__ == '__main__':
 
                     print("\nDeixe vazio para não alterar")
 
-                    novo_nome = input(
-                        f"Novo nome ({med.get_nome()}): "
-                    )
+                    novo_nome = input(f"Novo nome ({med.get_nome()}): ")
                     if novo_nome:
                         med.set_nome(novo_nome)
 
                     try:
-                        nova_dosagem = input(
-                            f"Nova dosagem ({med.get_dosagem_mg()}): "
-                        )
+                        nova_dosagem = input(f"Nova dosagem ({med.get_dosagem_mg()}): ")
                         if nova_dosagem:
                             med.set_dosagem_mg(float(nova_dosagem))
                     except ValueError:
                         print("Dosagem inválida!")
 
-                    novo_horario = input(
-                        f"Novo horário ({med.get_horario()}): "
-                    )
+                    novo_horario = input(f"Novo horário ({med.get_horario()}): ")
                     if novo_horario:
                         if ":" in novo_horario:
                             med.set_horario(novo_horario)
                         else:
                             print("Horário inválido!")
 
-                    novos_dias = input(
-                        f"Novos dias ({med.get_dias()}): "
-                    )
+                    novos_dias = input(f"Novos dias ({med.get_dias()}): ")
                     if novos_dias:
                         med.set_dias(novos_dias)
 
@@ -162,9 +149,7 @@ if __name__ == '__main__':
                     except ValueError:
                         print("Duração inválida!")
 
-                    nova_posologia = input(
-                        f"Nova posologia ({med.get_posologia()}): "
-                    )
+                    nova_posologia = input(f"Nova posologia ({med.get_posologia()}): ")
                     if nova_posologia:
                         med.set_posologia(nova_posologia)
 
@@ -175,7 +160,7 @@ if __name__ == '__main__':
                         med.get_horario(),
                         med.get_dias(),
                         med.get_duracao_dias(),
-                        med.get_posologia()
+                        med.get_posologia(),
                     )
 
                     print("Medicamento atualizado com sucesso!")
@@ -196,9 +181,7 @@ if __name__ == '__main__':
                     print(f"{i} - {med.get_nome()}")
 
                 try:
-                    indice = int(
-                        input("Digite o número do medicamento: ")
-                    ) - 1
+                    indice = int(input("Digite o número do medicamento: ")) - 1
                 except ValueError:
                     print("Digite um número válido!")
                     continue
@@ -206,9 +189,7 @@ if __name__ == '__main__':
                 if 0 <= indice < len(lista):
                     med = lista[indice]
 
-                    remover_medicamento(
-                        med.get_id()
-                    )
+                    remover_medicamento(med.get_id())
 
                     print("Medicamento removido com sucesso!")
                 else:

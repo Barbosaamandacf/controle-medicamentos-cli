@@ -12,29 +12,18 @@ def conectar():
     return psycopg2.connect(DATABASE_URL)
 
 
-def inserir_medicamento(
-        nome,
-        dosagem_mg,
-        horario,
-        dias,
-        duracao_dias,
-        posologia
-):
+def inserir_medicamento(nome, dosagem_mg, horario, dias, duracao_dias, posologia):
     conn = conectar()
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        """
         INSERT INTO medicamentos
         (nome, dosagem_mg, horario, dias, duracao_dias, posologia)
         VALUES (%s, %s, %s, %s, %s, %s)
-    """, (
-        nome,
-        dosagem_mg,
-        horario,
-        dias,
-        duracao_dias,
-        posologia
-    ))
+    """,
+        (nome, dosagem_mg, horario, dias, duracao_dias, posologia),
+    )
 
     conn.commit()
     cursor.close()
@@ -68,7 +57,7 @@ def listar_medicamentos():
             item[3],  # horario
             item[4],  # dias
             item[5],  # duracao
-            item[6]  # posologia
+            item[6],  # posologia
         )
         lista.append(med)
 
@@ -78,19 +67,12 @@ def listar_medicamentos():
     return lista
 
 
-def atualizar_medicamento(
-        id,
-        nome,
-        dosagem_mg,
-        horario,
-        dias,
-        duracao_dias,
-        posologia
-):
+def atualizar_medicamento(id, nome, dosagem_mg, horario, dias, duracao_dias, posologia):
     conn = conectar()
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        """
         UPDATE medicamentos
         SET nome = %s,
             dosagem_mg = %s,
@@ -99,15 +81,9 @@ def atualizar_medicamento(
             duracao_dias = %s,
             posologia = %s
         WHERE id = %s
-    """, (
-        nome,
-        dosagem_mg,
-        horario,
-        dias,
-        duracao_dias,
-        posologia,
-        id
-    ))
+    """,
+        (nome, dosagem_mg, horario, dias, duracao_dias, posologia, id),
+    )
 
     conn.commit()
     cursor.close()
@@ -118,10 +94,13 @@ def remover_medicamento(id):
     conn = conectar()
     cursor = conn.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        """
         DELETE FROM medicamentos
         WHERE id = %s
-    """, (id,))
+    """,
+        (id,),
+    )
 
     conn.commit()
     cursor.close()
