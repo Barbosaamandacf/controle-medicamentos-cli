@@ -1,10 +1,10 @@
-import sys
 import os
+import sys
 
 pasta_raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(pasta_raiz)
 
-from controle_medicamentos import Medicamento
+from controle_medicamentos import Medicamento  # noqa: E402
 
 
 def pesquisar_medicamento(banco_de_dados, termo_busca):
@@ -65,11 +65,11 @@ def iniciar_programa():
                 print(
                     f" - {res.get_nome()} | Dosagem: {res.get_dosagem_mg()}mg | Horário: {res.get_horario()} | Duração: {res.get_duracao_dias()} dias"
                 )
-        else:
-            print(
-    "\n❌ Nenhum medicamento encontrado com esse termo. "
-    "Tente digitar outra palavra-chave."
-)
+            else:
+                print(
+                    "\n❌ Nenhum medicamento encontrado com esse termo. "
+                    "Tente digitar outra palavra-chave."
+                )
 
 
 if __name__ == "__main__":

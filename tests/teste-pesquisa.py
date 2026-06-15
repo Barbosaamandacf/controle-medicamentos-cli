@@ -4,7 +4,7 @@ import os
 pasta_raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(pasta_raiz)
 
-from controle_medicamentos import Medicamento
+from controle_medicamentos import Medicamento  # noqa: E402
 
 
 def pesquisar_medicamento(banco_de_dados, termo_busca):
